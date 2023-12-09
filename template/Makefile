@@ -9,7 +9,7 @@ PROGRAM := program
 # Build seccomp
 LDFLAGS := -lseccomp
 seccomp: seccomp.o
-seccomp.bpf: seccomp 
+seccomp.bpf: seccomp
 	./seccomp > seccomp.bpf
 
 seccomp.bpf.b64: seccomp.bpf
