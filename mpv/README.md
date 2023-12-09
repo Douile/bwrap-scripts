@@ -1,5 +1,7 @@
 # Bwrap MPV video player
 
+Last confirmed working mpv version: 0.36.0
+
 This script will automatically detect wayland or Xorg and forward the required sockets. Currently
 GPU acceleration is not forwarded and does not work. Other video outputs like DRM will also not work.
 
