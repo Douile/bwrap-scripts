@@ -10,8 +10,6 @@
 # networking.
 set -euo pipefail
 
-set -x
-
 CONFIG="$HOME/.config/mpv/mpv.conf"
 XAUTH="$HOME/.Xauthority"
 
@@ -31,6 +29,7 @@ if [ -c /dev/dri/renderD128 ]; then
 fi
 
 if [ "${WAYLAND_DISPLAY:-}" != "" ]; then
+  EXTRA_ARGS+=(--unshare-ipc) # Only X11 needs IPC
   EXTRA_ARGS+=(--setenv WAYLAND_DISPLAY "$WAYLAND_DISPLAY")
   EXTRA_ARGS+=(--ro-bind "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY")
 # X11
